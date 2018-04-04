@@ -1,0 +1,110 @@
+//Gaurangkumar Mody CS610 8309 prp
+
+
+System configuration : 
+afsconnect1.njit.edu
+java version "1.8.0_144"
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+
++++
+
+Zipfile contains
+
+//Files for PageRank and HITS.
+1)hits8309.java
+2)pgrk8309.java
+//You will need this file to run PageRank and HITS.
+3)Utilph8309.java
+//Files for Huffman encoding and decoding.
+4)hdec8309.java
+5)henc8309.java
+//You will need this file to run Huffman.
+6)Tree8309.java
+7)Utilhf8309.java
+8)FileUtil8309.java
+//this is current file.
+9)prp_8309.txt
+
++++
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+PageRank
+==============================================
+->will work only for this initial values : 0,1,-1,-2.
+
+->NO BUGS.
+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+HITS
+==============================================
+->will work only for this initial values : 0,1,-1,-2.
+
+->NO BUGS
+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+Huffman
+==============================================
+
+
+1)Bugs : Getting Java Heapsize error after some size of file.
+
+2)Extra features :
+	             -> Generating and storing original file MD5 hash.
+				 -> Verifying file MD5 after decoding the huf file. (Verifying Data Integrity).
+				 -> Calculating compression rate. (Saved Memory %)
+				 -> Calculating Execution time. (The total time taken for the program to do huffman encoding as well as while decoding)
+				 
+				 
+
+3)Program tested with text file, PDF, JPG ,MP4 And tar file.
+
+4) ->  I tried with 65536 KB tar file.
+	   afsconnect1-80 dsa >: java henc8309 aaaa.tar
+	                         File md5 : 5B742B583F489272FFD6027063FDCDC1
+							 Old File Size : 67108864 Bytes 
+							 New File Size : 54153960 Bytes
+							 19.304312 % Decrease in filesize.
+							 Execution time is 37.39100 seconds.
+
+   ->  I was able to verify dataintegrity using hash.
+	   afsconnect1-83 dsa >: java hdec8309 aaaa.tar.huf
+							 File md5 : 5B742B583F489272FFD6027063FDCDC1
+							 Verified Data Integrity.
+							 Deleting aaaa.tar.huf
+							 Deleting aaaa.tar.hash
+							 Old File Size : 54153960 Bytes
+							 New File Size : 67108864 Bytes
+							 23.922358 % Increase in filesize.
+							 Execution time is 7.71000 seconds.
+						
+
+   
+
+
+5) I tried with other file types.
+   ->File Size : 18030759  Bytes   Saved After Compression :  3.9993877%  FileType: jpg   Verified Data Integrity : yes
+   ->File Size : 14488498  Bytes   Saved After Compression :  0.03197709% FileType: jpg   Verified Data Integrity : yes
+   ->File Size : 10762150  Bytes   Saved After Compression :  2.925921%   FileType: pdf   Verified Data Integrity : yes
+   ->File Size : 20000000  Bytes   Saved After Compression :  24.64509%   FileType: txt   Verified Data Integrity : yes
+   ->File Size : 70000000  Bytes   Saved After Compression :  24.6452%    FileType: txt   Verified Data Integrity : yes
+	 *** Below are two same video file with different frame size.
+   ->File Size : 31551484  Bytes   Saved After Compression :  0.001026893%   FileType: mp4   Verified Data Integrity : yes  framesize : 480p
+   ->File Size : 31491130  Bytes   Saved After Compression :  0.0010288612%  FileType: mp4   Verified Data Integrity : yes  framesize : 720p
+
+
+6) From my results i observed that text file gets highest compression rate for other file types data-compression rate is very low.
+   I also tried for same video files with different framesize and i observed that the video file with high framesize compression rate 
+   is slightly higher than lower framesize compression rate.
+   
+
+==============================================
+//End Of file.
+++++++++++++++++++++++++++++++++++++++++++++++   
